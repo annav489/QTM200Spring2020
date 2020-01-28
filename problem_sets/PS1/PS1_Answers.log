@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  27 JAN 2020 23:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  27 JAN 2020 23:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -153,14 +153,9 @@ Overfull \hbox (153.00507pt too wide) in paragraph at lines 49--51
  []
 
 
-Overfull \hbox (609.0097pt too wide) in paragraph at lines 53--54
+Overfull \hbox (609.0097pt too wide) in paragraph at lines 53--55
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (39.0039pt too wide) in paragraph at lines 54--56
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [2] (./PS1_Answers.aux) ) 
@@ -178,7 +173,7 @@ amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmsy10.pfb>
-Output written on PS1_Answers.pdf (2 pages, 59498 bytes).
+Output written on PS1_Answers.pdf (2 pages, 59451 bytes).
 PDF statistics:
  31 PDF objects out of 1000 (max. 8388607)
  21 compressed objects within 1 object stream

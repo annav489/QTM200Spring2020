@@ -51,7 +51,6 @@
 	#c 
 	qplot(x = X1, y = Y, data = expenditure)
 	#X1 and Y show a strong positive correlation. On average, as per capita expenditure on public education increases, per capita personal income increases
-	qplot(x = X1, y = Y, data = expenditure, shape = Region)
 	
 	ggplot(expenditure, aes(X1, Y)) +
 	geom_point(aes(shape = Region, color = Region)) + 
