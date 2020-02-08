@@ -4,7 +4,7 @@ discrimination <- matrix(c(14, 6, 7, 7, 7, 1),ncol=3,byrow=TRUE)
 colnames(discrimination) <- c("Not_Stopped","Bribe_Requested","Stopped_Given_Warning")
 rownames(discrimination) <- c("Upper_Class","Lower_Class")
 discrimination <- as.table(discrimination)
-discrimination
+
 
 totals <- sum(discrimination)
 #Sum Not Stopped 
@@ -47,22 +47,23 @@ chisquare6 <- (1-fe6)^2/fe6
 
 #Test Statistic 
 chi_square_stat <- sum(chisquare1,chisquare2,chisquare3,chisquare4,chisquare5,chisquare6)
+#3.791168
 
 #1b 
 # df = (rows-1))columns-1)
 df_pchisq <- (2-1)*(3-1)
 pchisq(chi_square_stat, df = df_pchisq, lower.tail = FALSE)
-## With a significance of alpha = 0.1, I fail to reject the null hypothesis and conclude that 
+## With a significance of alpha = 0.1 and a p-value of 0.150, I fail to reject the null hypothesis and conclude that 
 ## the class and bribe solicitation are statistically independent 
 
 #1c
-f0 - fe/ sqrt(fe(1-rowtotal/total)*(1-columntotal/total))
 z1 <- (14-fe1)/sqrt(fe1*(1-(upper/totals)*(1-(not_stopped/totals))))
 z2 <- (6-fe2)/sqrt(fe2*(1-(upper/totals)*(1-(bribe_requested/totals))))
 z3 <- (7-fe3)/sqrt(fe3*(1-(upper/totals)*(1-(warning/totals))))
 z4 <- (7-fe4)/sqrt(fe4*(1-(lower/totals)*(1-(not_stopped/totals))))
 z5 <- (7-fe5)/sqrt(fe5*(1-(lower/totals)*(1-(bribe_requested/totals))))
 z6 <- (1-fe6)/sqrt(fe6*(1-(lower/totals)*(1-(warning/totals))))
+matrix(c(z1, z2, z3, z4, z5, z6), ncol = 3, byrow = TRUE)
 
 #1d
 #Standardized residuals show us how far away each observed value is from the "expectation" 
@@ -89,28 +90,37 @@ b_hat <- sum((women$water - mean(women$water)) * (women$reserved - mean(women$re
   sum((women$reserved - (mean_reserved_x))^2)
 
 a_hat <- mean_water_y - (b_hat*mean_reserved_x)
+#14.738
+
 #Check
-lm(women$water ~ women$reserved)
+lm(women$water ~ women$reserved) #14.738
 
 #2c 
 #For every increase in reservation for women leaders, there was a 9.252 increase in new or repaired drinking water facilities. 
-
 
 ##Question 3 
 fruitfly <- read.csv("fruitfly.csv") 
 
 #3.1
-summary(fruitfly)
-hist(fruitfly$lifespan) 
+summary(fruitfly) 
+# No          type      lifespan         thorax          sleep      
+# Min.   : 1   Min.   :1   Min.   :16.00   Min.   :0.640   Min.   : 1.00  
+# 1st Qu.: 7   1st Qu.:2   1st Qu.:46.00   1st Qu.:0.760   1st Qu.:13.00  
+# Median :13   Median :3   Median :58.00   Median :0.840   Median :20.00  
+# Mean   :13   Mean   :3   Mean   :57.44   Mean   :0.821   Mean   :23.46  
+# 3rd Qu.:19   3rd Qu.:4   3rd Qu.:70.00   3rd Qu.:0.880   3rd Qu.:29.00  
+# Max.   :25   Max.   :5   Max.   :97.00   Max.   :0.940   Max.   :83.00 
+hist(fruitfly$lifespan)
 
 #3.2
 library(tidyverse)
 qplot(x = thorax, y = lifespan, data = fruitfly)
 #Yes, there seems to be a linear correlation 
 
-cor(fruitfly$thorax, fruitfly$lifespan, method="pearson")
+cor(fruitfly$thorax, fruitfly$lifespan, method="pearson") #0.6364835
 #Check if null p = 0
-cor.test(fruitfly$thorax, fruitfly$lifespan)
+cor.test(fruitfly$thorax, fruitfly$lifespan) 
+#0.6364835
 
 #3.3 
 lm(fruitfly$lifespan~fruitfly$thorax)
@@ -118,10 +128,23 @@ lm(fruitfly$lifespan~fruitfly$thorax)
 
 #3.4 
 cor.test(fruitfly$lifespan,fruitfly$thorax) #P-value = 1.497e-15 
+
+#Pearson's product-moment correlation
+
+#data:  fruitfly$lifespan and fruitfly$thorax
+#t = 9.1521, df = 123, p-value = 1.497e-15
+#alternative hypothesis: true correlation is not equal to 0
+#95 percent confidence interval:
+#0.5188709 0.7304479
+#sample estimates:
+#cor 
+#0.6364835 
+
 ## With a p-value of 1.497e-15, I reject the null hypothesis that there is no correlation in the population between thorax and lifespan. 
 
 #3.5 
 ##p-value = 1.497e-15 (see 3.4) 
+t.test(lm(fruitfly$lifespan~fruitfly$thorax), level = 0.90)
 #Formula based on t values: 
 confint(lm(fruitfly$lifespan~fruitfly$thorax), level = 0.90)
 #[118.19616,170.4700]
