@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  16 FEB 2020 20:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  16 FEB 2020 20:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1123,7 +1123,7 @@ cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
 texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/t
 exlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/tex
 live/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on PS3_Voss.pdf (11 pages, 875293 bytes).
+Output written on PS3_Voss.pdf (11 pages, 875299 bytes).
 PDF statistics:
  192 PDF objects out of 1000 (max. 8388607)
  158 compressed objects within 2 object streams
