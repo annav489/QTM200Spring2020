@@ -93,31 +93,31 @@ t.test(papprove ~ Post, data=x[x$osu==0,])
 # 2. Run a linear model with papprove as a dependent variable and 
 #    Post, osu, and the interaction of the two as independent variables.
 
-
+lm(papprove~Post+osu, data = x)
 
 
 # 3. Answer the following questions based on the results.
 
 # 3a. What is the predicted presidential approval of OSU students who received
 #     the survey BEFORE the game?
-
+lm(papprove~PreOSU, data = x)
 
 # 3b. What is the predicted presidential approval of OSU students who received
 #     the survey AFTER the game?
-
+lm(papprove~PostOSU, data = x)
 
 # 3c. What is the predicted presidential approval of UO students who received
 #     the survey BEFORE the game?
-
+lm(papprove~PreOreg, data = x)
 
 # 3d. What is the predicted presidential approval of UO students who received
 #     the survey AFTER the game?
-
+lm(papprove~PostOreg, data = x)
 
 # 3e. What is the marginal effect of Post on presidential approval
 #     when osu=1?
-
-
+post_osu_filter <- x$osu == "1"
+lm(papprove~post_osu_filter, data = x)
 
 
 ################ Additional Question ################ 

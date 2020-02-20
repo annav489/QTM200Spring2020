@@ -1031,41 +1031,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--100
  []
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2019/02/27 1.8b listings language file
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang2.sty
+F/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2019/02/27 1.8b listings language file
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2019/02/27 1.8b listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 101.
 
-(./PS2_Voss.R
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 3.
- (/usr/local/texlive/2019/texmf-dist/tex/latex/base/omlcmr.fd
-File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3.
+! Package Listings Error: File `PS1_Voss(.R)' not found.
 
-[2])
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: R)
 
- []
+Enter file name: 
+./PS2_Answers.tex:102: Emergency stop.
+<read *> 
+         
+l.102 ...=R, firstline=3, lastline=49]{PS1_Voss.R}
+                                                  ^^M
+End of file on the terminal!
 
-(./PS2_Voss.R) [3]
-Overfull \hbox (61.23032pt too wide) in paragraph at lines 114--123
- [][] 
- []
-
-(./PS2_Voss.R) (./PS2_Voss.R) [4]
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-
- []
-
-[5] (./PS2_Voss.R) (./PS2_Voss.R) [6] (./PS2_Voss.R) [7] (./PS2_Voss.R)
+ 
+Here is how much of TeX's memory you used:
+ 22293 strings out of 492616
+ 392886 string characters out of 6129482
+ 685373 words of memory out of 5000000
+ 25790 multiletter control sequences out of 15000+600000
+ 14735 words of font info for 61 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 55i,8n,52p,3243b,329s stack positions out of 5000i,500n,10000p,200000b,80000s
+./PS2_Answers.tex:102:  ==> Fatal error occurred, no output PDF file produced!
+./PS2_Voss.R) [6] (./PS2_Voss.R) [7] (./PS2_Voss.R)
 <histogram.pdf, id=152, 614.295pt x 794.97pt>
 File: histogram.pdf Graphic file (type pdf)
 <use histogram.pdf>
