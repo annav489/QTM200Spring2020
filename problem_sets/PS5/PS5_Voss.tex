@@ -1,0 +1,135 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{graphicx,textcomp}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage[reqno]{amsmath}
+\usepackage{amsthm}
+\usepackage{fancyvrb}
+\usepackage{amssymb,enumerate}
+\usepackage[all]{xy}
+\usepackage{endnotes}
+\usepackage{lscape}
+\newtheorem{com}{Comment}
+\usepackage{float}
+\usepackage{hyperref}
+\newtheorem{lem} {Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{cor}{Corollary}
+\newtheorem{obs}{Observation}
+\usepackage[compact]{titlesec}
+\usepackage{dcolumn}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{multirow}
+\usepackage{xcolor}
+\newcolumntype{.}{D{.}{.}{-1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\definecolor{light-gray}{gray}{0.65}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+\newcommand{\Sref}[1]{Section~\ref{#1}}
+\newtheorem{hyp}{Hypothesis}
+
+\title{Problem Set 5}
+\date{Due: March 4, 2020}
+\author{QTM 200: Applied Regression Analysis}
+
+\begin{document}
+	\maketitle
+	
+	\section*{Instructions}
+	\begin{itemize}
+		\item Please show your work! You may lose points by simply writing in the answer. If the problem requires you to execute commands in \texttt{R}, please include the code you used to get your answers. Please also include the \texttt{.R} file that contains your code. If you are not sure if work needs to be shown for a particular problem, please ask.
+		\item Your homework should be submitted electronically on the course GitHub page in \texttt{.pdf} form.
+		\item This problem set is due at the beginning of class on Wednesday, March 4, 2020. No late assignments will be accepted.
+		\item Total available points for this homework is 100.
+	\end{itemize}
+	
+		\vspace{.5cm}
+	
+\noindent  Using the \texttt{teengamb} dataset, fit a model with \texttt{gamble} as the response and the other variables as predictors. 
+
+\vspace{.5cm}
+\lstinputlisting[language=R, firstline=1, lastline=6]{PS5_Voss.R}  
+\vspace{.5cm}
+Answer the following questions:
+\vspace{.5cm}
+\begin{enumerate}[(a)]
+	 \item Check the constant variance assumption for the errors by plotting the residuals versus the fitted values. \newpage
+	 \lstinputlisting[language=R, firstline=9, lastline=13]{PS5_Voss.R}
+	 \includegraphics[width=.75\textwidth]{variancecheck.pdf}
+	 \begin{verbatim}
+	 The plot has more variance near the center of the distribution of fitted 
+	 values but their are relatively few outliers compared to the distribution
+	 of the data set as a whole.
+	 \end{verbatim}
+	 
+	\item Check the normality assumption with a Q-Q plot of the studentized residuals. 
+	 \lstinputlisting[language=R, firstline=18, lastline=19]{PS5_Voss.R}
+	 \includegraphics[width=.75\textwidth]{qqplot.pdf}
+	\begin{verbatim}
+	Since the ends of the lines diverge from the line of best fit, the data
+	might not be normally distributed due to variation at the extremes.
+	\end{verbatim}
+	
+	\item Check for large leverage points by plotting the $h$ values. 
+	\lstinputlisting[language=R, firstline=24, lastline=27]{PS5_Voss.R}
+	\includegraphics[width=.75\textwidth]{hatvalues.pdf}
+	\begin{verbatim}
+	The numbered points in the graph have high leverage due to their large
+	hat values.
+	\end{verbatim}
+	
+	\item Check for outliers by running an \texttt{outlierTest}. 
+	\lstinputlisting[language=R, firstline=31, lastline=31]{PS5_Voss.R}
+	\begin{verbatim}
+	 rstudent unadjusted p-value Bonferroni p
+24 6.016116         4.1041e-07   1.9289e-05
+
+	The p value from the outlier test is less than 0.05, so I reject the
+	null hypothesis that there are no outliers. 
+	\end{verbatim}
+	
+	\item Check for influential points by creating a "Bubble plot" with the hat-values and studentized residuals.
+	\lstinputlisting[language=R, firstline=36, lastline=41]{PS5_Voss.R}
+	\includegraphics[width=.75\textwidth]{bubbleplot.pdf}
+	\begin{verbatim}
+	The bubble labeled 24 has large cook's distance and studentized residual
+	values. This means that this point has a large amount of inlfluence on
+	the model. Point 35, which has a large hat value, but a small studentized
+	residual, shows less influence.
+	\end{verbatim}
+	% \item N/A.
+\end{enumerate}
+
+\end{document}
